@@ -1,0 +1,60 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.create-button {
+    align-self: flex-start;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #707070;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#btn_create{
+    
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #707070;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#form-create {
+    width: 100%;
+    max-width: 500px;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid black;
+}
+
+#form-create label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+#form-create input[type="text"],
+#form-create input[type="date"],
+#form-create select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
