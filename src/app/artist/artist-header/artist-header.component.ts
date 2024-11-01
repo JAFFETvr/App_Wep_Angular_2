@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-artist-header',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './artist-header.component.css'
 })
 export class ArtistHeaderComponent {
+  constructor(private router: Router) {}
 
+  navigateToCreateSong() {
+    this.router.navigate(['/app-artis-form']);
+  }
+
+  navigateToViewMySongs() {
+    this.router.navigate(['/app-artist-my-songs']);
+  }
 }

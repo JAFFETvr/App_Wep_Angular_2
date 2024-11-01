@@ -9,11 +9,11 @@ import { UsersModule } from './users/users.module';
 import { ArtistModule } from './artist/artist.module';
 import { LoginModule } from './login/login.module';
 import { FormsModule } from '@angular/forms';
+import { ArtistHeaderComponent } from './artist/artist-header/artist-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-  
   ],
   imports: [
     BrowserModule,

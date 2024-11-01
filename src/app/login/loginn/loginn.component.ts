@@ -27,14 +27,13 @@ export class LoginnComponent {
     );
 
     if (usuarioValido) {
-      // Redirige según el rol del usuario
       if (usuarioValido.rol === 'user') {
-        this.router.navigate(['/app-users-dashboard']); // Ruta para usuarios
+        this.router.navigate(['/app-users-dashboard']); 
       } else if (usuarioValido.rol === 'artist') {
-        this.router.navigate(['/app-artist-dashboard']); // Ruta para artistas
+        this.router.navigate(['/app-artist-dashboard']);
       }
     } else {
-      alert('Credenciales inválidas.'); // Muestra un mensaje si las credenciales son incorrectas
+      alert('Credenciales inválidas.');
     }
   }
 }
