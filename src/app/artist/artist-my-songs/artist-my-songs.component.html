@@ -1,0 +1,12 @@
+<div id="container">
+    <h3>Your Songs</h3>
+    <div id="songs">
+        <p>Songs:</p>
+        <div id="play">
+            <div *ngFor="let Mysong of Mysongs">
+                <p>{{ Mysong }}</p>
+                <button (click)="addToPlaylist(Mysong)">Delate to Playlist</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { UsersModule } from './users/users.module';
 import { ArtistModule } from './artist/artist.module';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { ArtistModule } from './artist/artist.module';
     BrowserModule,
     AppRoutingModule,
     UsersModule,
-    ArtistModule
+    ArtistModule,
+    LoginModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
