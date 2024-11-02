@@ -1,36 +1,57 @@
-<!-- src/app/login/loginn/loginn.component.html -->
 <div id="center">
     <div id="login" class="login-container">
-        <h2>
-            <div>
-                <img id="img1" src="./1.png" alt="">
-            </div>
-            Iniciar Sesión
-        </h2>
-        <div class="half-container">
-            <img id="img2" src="./3.png" alt="">
-            <div style="width: 100%;">
-                <label for="correo"></label>
-                <input type="text" id="correo" [(ngModel)]="correo" placeholder="Introduce tu usuario">
-            </div>
+      <h2>
+        <div>
+          <img id="img1" src="./1.png" alt="">
         </div>
-        <div class="half-container">
-            <img id="img3" src="./2.png" alt="">
-            <div style="width: 100%;">
-                <label for="password"></label>
-                <input type="password" id="password" [(ngModel)]="password" placeholder="Introduce tu contraseña">
-            </div>
+        Iniciar Sesión
+      </h2>
+      <div class="half-container">
+        <img id="img2" src="./3.png" alt="">
+        <div style="width: 100%;">
+          <label for="correo"></label>
+          <input type="text" id="correo" [(ngModel)]="correo" placeholder="Introduce tu usuario">
         </div>
-        <div class="half-container">
-            <div style="width: 100%;">
-                <label for="rol">Introduce tu rol</label>
-                <select id="rol" [(ngModel)]="rol">
-                    <option value="user">USER</option>
-                    <option value="artist">ARTISTA</option>
-                </select>
-            </div>
+      </div>
+      <div class="half-container">
+        <img id="img3" src="./2.png" alt="">
+        <div style="width: 100%;">
+          <label for="password"></label>
+          <input type="password" id="password" [(ngModel)]="password" placeholder="Introduce tu contraseña">
         </div>
-
-        <button (click)="iniciarSesion()">Iniciar Sesión</button>
+      </div>
+      <div class="half-container">
+        <div style="width: 100%;">
+          <label style="margin: 18px;" for="rol">Introduce tu rol</label>
+          <select id="rol" [(ngModel)]="rol">
+            <option value="user">USER</option>
+            <option value="artist">ARTISTA</option>
+          </select>
+        </div>
+      </div>
+  
+      <button (click)="iniciarSesion()">Iniciar Sesión</button>
+      <button (click)="toggleRegistro()">Regístrate</button>
     </div>
-</div>
+  
+    <div *ngIf="mostrarRegistro" class="modal-content">
+        <h3>Registro de Nuevo Usuario</h3>
+        
+        <label for="nuevoCorreo">Correo</label>
+        <input type="text" id="nuevoCorreo" [(ngModel)]="nuevoCorreo" placeholder="Introduce tu correo">
+      
+        <label for="nuevoPassword">Contraseña</label>
+        <input type="password" id="nuevoPassword" [(ngModel)]="nuevoPassword" placeholder="Introduce tu contraseña">
+      
+        <label for="nuevoRol">Rol</label>
+        <select id="nuevoRol" [(ngModel)]="nuevoRol">
+          <option value="user">USER</option>
+          <option value="artist">ARTISTA</option>
+        </select>
+      
+        <button (click)="registrarUsuario()">Registrar</button>
+        <button (click)="toggleRegistro()">Cancelar</button>
+      </div>
+
+  </div>
+  
