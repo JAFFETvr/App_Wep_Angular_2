@@ -58,17 +58,15 @@ select {
     border-radius: 4px;
     font-size: 16px;
     padding: 18px;  
-    margin-left: 30px;
     background-color: #1e1e1e; /* Fondo de select oscuro */
     color: #ffffff; /* Texto blanco */
 }
 
 button {
-    width: 50%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 160px;
     padding: 10px;
     background-color: #3a3a3a; /* Fondo del botón */
     color: white; /* Texto blanco */
@@ -107,3 +105,56 @@ a {
 a:hover {
     text-decoration: underline;
 }
+/* Estilos del modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #292929; /* Fondo oscuro del formulario */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.4);
+    width: 400px;
+    max-width: 90%;
+    color: #f5f5f5;
+    text-align: center;
+}
+
+.modal-content h3 {
+    color: #f5f5f5;
+    margin-bottom: 20px;
+}
+
+.modal-content label {
+    color: #ffffff;
+    display: block;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="password"],
+.modal-content select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 5px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+
+
+
+

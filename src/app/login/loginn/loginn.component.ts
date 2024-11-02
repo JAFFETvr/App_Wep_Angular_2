@@ -12,28 +12,30 @@ export class LoginnComponent {
   password: string = '';
   rol: string = 'user';
 
-  private usuarios = [
-    { correo: 'usuario@.com', password: '123', rol: 'user' },
-    { correo: 'artista@.com', password: '456', rol: 'artist' },
-  ];
+  nuevoCorreo: string = '';
+  nuevoPassword: string = '';
+  nuevoRol: string = 'user';
+  mostrarRegistro: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   iniciarSesion() {
-    const usuarioValido = this.usuarios.find(usuario => 
-      usuario.correo === this.correo && 
-      usuario.password === this.password && 
-      usuario.rol === this.rol
-    );
+    this.authService.login(this.correo, this.password, this.rol);
+  }
 
-    if (usuarioValido) {
-      if (usuarioValido.rol === 'user') {
-        this.router.navigate(['/app-users-dashboard']); 
-      } else if (usuarioValido.rol === 'artist') {
-        this.router.navigate(['/app-artist-dashboard']);
-      }
+  toggleRegistro() {
+    this.mostrarRegistro = !this.mostrarRegistro;
+  }
+
+  registrarUsuario() {
+    if (this.nuevoCorreo && this.nuevoPassword && this.nuevoRol) {
+      this.authService.register(this.nuevoCorreo, this.nuevoPassword, this.nuevoRol);
+      this.nuevoCorreo = '';
+      this.nuevoPassword = '';
+      this.nuevoRol = 'user';
+      this.mostrarRegistro = false; 
     } else {
-      alert('Credenciales inválidas.');
+      alert('Por favor, completa todos los campos.');
     }
   }
 }
