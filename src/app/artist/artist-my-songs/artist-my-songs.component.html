@@ -5,9 +5,36 @@
         <p>Songs:</p>
         <div id="play">
             <div *ngFor="let Mysong of Mysongs">
-                <p>{{ Mysong }}</p>
-                <button (click)="addToPlaylist(Mysong)">Delate to Playlist</button>
+                <p>{{ Mysong.titulo }}</p>
+                <button (click)="openEditModal(Mysong)">Edit</button>
+                <button (click)="deleteSong(Mysong.id)">Delete</button>
             </div>
         </div>
+    </div>
+</div>
+
+<!-- Modal para editar canción -->
+<div id="editModal" class="modal" *ngIf="isEditModalOpen">
+    <div class="modal-content">
+        <span class="close" (click)="closeEditModal()">&times;</span>
+        <h2>Edit Song</h2>
+        <form (ngSubmit)="updateSong()">
+            <label for="titulo">Title:</label>
+            <input type="text" id="titulo" [(ngModel)]="currentSong.titulo" name="titulo" required>
+            
+            <label for="duracion">Duration:</label>
+            <input type="number" id="duracion" [(ngModel)]="currentSong.duracion" name="duracion" required>
+            
+            <label for="genero">Genre:</label>
+            <input type="text" id="genero" [(ngModel)]="currentSong.genero" name="genero" required>
+            
+            <label for="fechaLanzamiento">Release Date:</label>
+            <input type="date" id="fechaLanzamiento" [(ngModel)]="currentSong.fechaLanzamiento" name="fechaLanzamiento" required>
+            
+            <label for="album">Album:</label>
+            <input type="text" id="album" [(ngModel)]="currentSong.album" name="album" required>
+            
+            <button type="submit">Update Song</button>
+        </form>
     </div>
 </div>

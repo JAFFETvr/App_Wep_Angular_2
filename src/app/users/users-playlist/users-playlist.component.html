@@ -1,13 +1,34 @@
 <app-user-header></app-user-header>
 <div id="container">
-    <h3>Your Playlist</h3>
-    <div id="songs">
-        <p>Songs:</p>
-        <div id="play">
-            <div *ngFor="let song of songs">
-                <p>{{ song }}</p>
-                <button (click)="addToPlaylist(song)">Delate to Playlist</button>
-            </div>
+    <h3>Your Playlists</h3>
+    <div id="playlists">
+        <p>Playlists:</p>
+        <div *ngFor="let playlist of playlists">
+            <p>{{ playlist.nombre }} - {{ playlist.descripcion }}</p>
+            <button (click)="deletePlaylist(playlist.id)">Delete from Playlist</button>
+            <button (click)="editPlaylist(playlist)">Edit Playlist</button>
         </div>
+    </div>
+
+    <div *ngIf="editingPlaylist">
+        <h4>Edit Playlist</h4>
+        <form (ngSubmit)="saveEdit()">
+            <label for="edit-name">Playlist Name</label>
+            <input type="text" id="edit-name" [(ngModel)]="updatedPlaylist.nombre" name="edit-name" required>
+
+            <label for="edit-description">Playlist Description</label>
+            <input type="text" id="edit-description" [(ngModel)]="updatedPlaylist.descripcion" name="edit-description" required>
+
+            <label for="edit-fecha">Fecha</label>
+            <input type="date" id="edit-fecha" [(ngModel)]="updatedPlaylist.fecha" name="edit-fecha" required>
+
+            <label for="edit-tipo">Tipo</label>
+            <select id="edit-tipo" [(ngModel)]="updatedPlaylist.tipo" name="edit-tipo" required>
+                <option value="public">PUBLIC</option>
+                <option value="private">PRIVATE</option>
+            </select>
+
+            <button type="submit">Save Changes</button>
+        </form>
     </div>
 </div>

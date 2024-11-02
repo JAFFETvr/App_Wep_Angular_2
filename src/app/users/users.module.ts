@@ -5,6 +5,7 @@ import { UsersDashboardComponent } from './users-dashboard/users-dashboard.compo
 import { UserHeaderComponent } from './user-header/user-header.component';
 import { UsersPlaylistComponent } from './users-playlist/users-playlist.component';
 import { UsersSongsComponent } from './users-songs/users-songs.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +18,8 @@ import { UsersSongsComponent } from './users-songs/users-songs.component';
     UsersSongsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ] ,
   exports : [
     UsersFormComponent,

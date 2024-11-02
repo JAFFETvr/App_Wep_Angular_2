@@ -4,6 +4,7 @@ import { ArtisFormComponent } from './artis-form/artis-form.component';
 import { ArtisDasbohardComponent } from './artis-dasbohard/artis-dasbohard.component';
 import { ArtistHeaderComponent } from './artist-header/artist-header.component';
 import { ArtistMySongsComponent } from './artist-my-songs/artist-my-songs.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -16,7 +17,8 @@ import { ArtistMySongsComponent } from './artist-my-songs/artist-my-songs.compon
 
   ],
   imports: [
-    CommonModule
+    CommonModule ,
+    FormsModule
   ],
   exports : [
     ArtisFormComponent,

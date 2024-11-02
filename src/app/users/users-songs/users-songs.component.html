@@ -1,12 +1,12 @@
 <app-user-header></app-user-header>
 <div id="container">
-    <h3>Songs Available</h3>
+    <h3>Your Songs</h3>
     <div id="songs">
         <p>Songs:</p>
         <div id="play">
-            <div *ngFor="let song of songs">
-                <p>{{ song }}</p>
-                <button (click)="addToPlaylist(song)">Add to Playlist</button>
+            <div *ngFor="let Mysong of Mysongs">
+                <p>{{ Mysong.titulo }}</p>
+                  <button>add to playlist</button>
             </div>
         </div>
     </div>

@@ -1,24 +1,23 @@
 <app-user-header></app-user-header>
 
 <div class="form-container">
-    <form action="" id="form-create">
+    <form (ngSubmit)="onCreatePlaylist()" id="form-create">
         <div id="create-playlist">
             <label for="playlist-name">INSERT NAME TO PLAYLIST</label>
-            <input type="text" id="playlist-name" name="playlist-name" placeholder="Enter playlist name">
+            <input type="text" id="playlist-name" name="playlist-name" [(ngModel)]="playlistData.nombre" placeholder="Enter playlist name" required>
 
             <label for="playlist-description">INSERT DESCRIPTION TO PLAYLIST</label>
-            <input type="text" id="playlist-description" name="playlist-description" placeholder="Enter playlist description">
+            <input type="text" id="playlist-description" name="playlist-description" [(ngModel)]="playlistData.descripcion" placeholder="Enter playlist description" required>
 
             <label for="fecha">FECHA</label>
-            <input type="date" id="fecha" name="fecha">
+            <input type="date" id="fecha" name="fecha" [(ngModel)]="playlistData.fecha" required>
 
             <label for="tipo">Tipo</label>
-            <select id="tipo" name="tipo">
-                <option value="PUBLIC">PUBLIC</option>
-                <option value="PRIVATE">PRIVATE</option>
+            <select id="tipo" name="tipo" [(ngModel)]="playlistData.tipo" required>
+                <option value="publica">PUBLIC</option>
+                <option value="privada">PRIVATE</option>
             </select>
         </div>    
-        <button id="btn_create">BUILD PLAYLIST</button>
-
+        <button type="submit" id="btn_create">BUILD PLAYLIST</button>
     </form>
 </div>

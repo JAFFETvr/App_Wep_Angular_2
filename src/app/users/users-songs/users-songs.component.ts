@@ -1,15 +1,31 @@
 import { Component } from '@angular/core';
-
+import { MusicService } from '../../api.service';
 @Component({
   selector: 'app-users-songs',
   templateUrl: './users-songs.component.html',
   styleUrl: './users-songs.component.css'
 })
 export class UsersSongsComponent {
-  songs = [1, 2, 3, 4, 5]; // Replace with actual song objects or data as needed
+  Mysongs: any[] = [];
+  
 
-  addToPlaylist(song: number): void {
-    console.log(`Song ${song} added to playlist`);
-    // Add your logic to actually add the song to the playlist here
+  constructor(private musicService: MusicService) {}
+
+  ngOnInit(): void {
+    this.loadSongs(); // Cargar canciones al inicializar el componente
   }
+
+  loadSongs(): void {
+    this.musicService.getAllCanciones().subscribe(
+      (data) => {
+        this.Mysongs = data;
+        console.log('Songs loaded:', this.Mysongs);
+      },
+      (error) => {
+        console.error('Error loading songs:', error);
+      }
+    );
+  }
+
+ 
 }
