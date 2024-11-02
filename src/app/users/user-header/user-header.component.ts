@@ -20,4 +20,7 @@ export class UserHeaderComponent {
   navigateToSongs() {
     this.router.navigate(['/app-users-songs']);
   }
+  cerrar(){
+    this.router.navigate(['./'])
+  }
 }

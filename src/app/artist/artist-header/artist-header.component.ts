@@ -16,4 +16,7 @@ export class ArtistHeaderComponent {
   navigateToViewMySongs() {
     this.router.navigate(['/app-artist-my-songs']);
   }
+  cerrar(){
+    this.router.navigate(['./'])
+  }
 }
