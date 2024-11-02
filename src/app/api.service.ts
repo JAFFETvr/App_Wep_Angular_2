@@ -100,4 +100,9 @@ export class MusicService {
   deleteAllListaReproducciones(): Observable<any> {
     return this.http.delete(`${this.baseUrl}/listaReproducciones`);
   }
+  // Obtener canciones de una lista de reproducción por ID
+getSongsFromListaReproduccion(playlistId: number): Observable<any> {
+  return this.http.get(`${this.baseUrl}/listaCanciones/playlist/${playlistId}`);
+}
+
 }
