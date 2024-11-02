@@ -17,12 +17,9 @@ export class UsersFormComponent {
   constructor(private musicService: MusicService) {}
 
   onCreatePlaylist(): void {
-    // Validar que los datos se están enviando correctamente
     console.log('Datos a enviar:', this.playlistData);
 
-    // No es necesario volver a asignar la fecha
-    // this.playlistData.fecha = this.playlistData.fecha;
-
+    
     this.musicService.createListaReproduccion(this.playlistData).subscribe(
       response => {
         console.log('Playlist creada:', response);

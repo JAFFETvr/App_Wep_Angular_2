@@ -8,13 +8,13 @@ import { MusicService } from '../../api.service';
 })
 export class ArtistMySongsComponent {
   Mysongs: any[] = [];
-  isEditModalOpen: boolean = false; // Controla la visibilidad del modal
-  currentSong: any; // Mantiene la canción que se está editando
+  isEditModalOpen: boolean = false; 
+  currentSong: any; 
 
   constructor(private musicService: MusicService) {}
 
   ngOnInit(): void {
-    this.loadSongs(); // Cargar canciones al inicializar el componente
+    this.loadSongs(); 
   }
 
   loadSongs(): void {
@@ -30,20 +30,20 @@ export class ArtistMySongsComponent {
   }
 
   openEditModal(song: any): void {
-    this.currentSong = { ...song }; // Crear una copia de la canción para editar
-    this.isEditModalOpen = true; // Abrir el modal
+    this.currentSong = { ...song }; 
+    this.isEditModalOpen = true; 
   }
 
   closeEditModal(): void {
-    this.isEditModalOpen = false; // Cerrar el modal
+    this.isEditModalOpen = false; 
   }
 
   updateSong(): void {
     this.musicService.updateCancion(this.currentSong.id, this.currentSong).subscribe(
       (response) => {
         console.log('Song updated:', response);
-        this.loadSongs(); // Recargar las canciones después de actualizar
-        this.closeEditModal(); // Cerrar el modal
+        this.loadSongs(); 
+        this.closeEditModal(); 
         alert('Song updated successfully');
       },
       (error) => {
@@ -58,7 +58,7 @@ export class ArtistMySongsComponent {
       this.musicService.deleteCancion(songId).subscribe(
         (response) => {
           console.log('Song deleted:', response);
-          this.loadSongs(); // Recargar las canciones después de eliminar
+          this.loadSongs(); 
           alert('Song deleted successfully');
         },
         (error) => {

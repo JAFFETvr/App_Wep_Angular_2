@@ -11,8 +11,7 @@ export class ArtisFormComponent {
   duracion: number | null = null;
   fecha: string = '';
   album: string = '';
-  tipo: string = 'POP'; // Valor por defecto para el tipo
-
+  tipo: string = 'POP'; 
   constructor(private musicService: MusicService) {}
 
   createSong(): void {
@@ -24,7 +23,7 @@ export class ArtisFormComponent {
         tipo: this.tipo
     };
 
-    console.log('Datos de la canción a enviar:', songData); // Agrega este log
+    console.log('Datos de la canción a enviar:', songData); 
 
     this.musicService.createCancion(songData).subscribe(
         (response) => {

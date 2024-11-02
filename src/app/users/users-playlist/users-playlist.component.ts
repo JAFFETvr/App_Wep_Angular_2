@@ -49,7 +49,7 @@ export class UsersPlaylistComponent {
     forkJoin(requests).subscribe(
       (songs: any[]) => { 
         this.selectedPlaylistSongs = songs; 
-        console.log('Detailed songs:', this.selectedPlaylistSongs); // Mostrar las canciones detalladas
+        console.log('Detailed songs:', this.selectedPlaylistSongs); 
       },
       (error) => {
         console.error('Error loading song details:', error);
