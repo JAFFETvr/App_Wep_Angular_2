@@ -1,0 +1,45 @@
+<app-user-header></app-user-header>
+<div id="container">
+    <h3>Your Playlists</h3>
+    <div id="playlists">
+        <p>Playlists:</p>
+        <div *ngFor="let playlist of playlists">
+            <p>{{ playlist.nombre }} - {{ playlist.descripcion }}</p>
+            <button (click)="deletePlaylist(playlist.id)">Delete from Playlist</button>
+            <button (click)="editPlaylist(playlist)">Edit Playlist</button>
+            <button (click)="loadSongsFromPlaylist(playlist.id)">View Added Songs</button>
+        </div>
+    </div>
+
+    <div *ngIf="editingPlaylist">
+        <h4>Edit Playlist</h4>
+        <form (ngSubmit)="saveEdit()">
+            <label for="edit-name">Playlist Name</label>
+            <input type="text" id="edit-name" [(ngModel)]="updatedPlaylist.nombre" name="edit-name" required>
+
+            <label for="edit-description">Playlist Description</label>
+            <input type="text" id="edit-description" [(ngModel)]="updatedPlaylist.descripcion" name="edit-description" required>
+
+            <label for="edit-fecha">Date</label>
+            <input type="date" id="edit-fecha" [(ngModel)]="updatedPlaylist.fecha" name="edit-fecha" required>
+
+            <label for="edit-tipo">Type</label>
+            <select id="edit-tipo" [(ngModel)]="updatedPlaylist.tipo" name="edit-tipo" required>
+                <option value="public">PUBLIC</option>
+                <option value="private">PRIVATE</option>
+            </select>
+
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+
+    <div *ngIf="selectedPlaylistSongs.length > 0">
+        <h4>Songs in Selected Playlist</h4>
+        <ul>
+            <li *ngFor="let song of selectedPlaylistSongs">
+                {{ song.titulo }}
+            </li>
+        </ul>
+    </div>
+    
+</div>

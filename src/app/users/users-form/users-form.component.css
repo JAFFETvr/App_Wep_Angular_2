@@ -1,0 +1,91 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#form-create {
+    width: 400px;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+#form-create h3 {
+    text-align: center;
+    color: #f5f5f5;
+}
+
+#form-create label {
+    display: block;
+    margin: 15px 0 5px;
+    font-size: 0.9em;
+    color: #d1d1d1;
+    font-weight: bold;
+}
+
+#form-create input[type="text"],
+#form-create input[type="date"],
+#form-create select {
+    width: 100%;
+    padding: 10px;
+    background-color: #292929;
+    border: 1px solid #3a3a3a;
+    border-radius: 5px;
+    color: #ffffff;
+    margin-top: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+#form-create input::placeholder {
+    color: #b0b0b0;
+}
+
+#form-create input:focus,
+#form-create select:focus {
+    outline: none;
+    border-color: #606060;
+}
+
+#form-create select {
+    appearance: none;
+    cursor: pointer;
+}
+
+#btn_create {
+    width: 100%;
+    padding: 12px;
+    background-color: #3a3a3a;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#btn_create:hover {
+    background-color: #505050;
+}
+
+/* Custom scrollbar for form container */
+.form-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.form-container::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+
+.form-container::-webkit-scrollbar-thumb {
+    background-color: #3a3a3a;
+    border-radius: 4px;
+}

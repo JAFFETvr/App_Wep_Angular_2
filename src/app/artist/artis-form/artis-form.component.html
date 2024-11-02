@@ -1,0 +1,29 @@
+<app-artist-header></app-artist-header>
+<div class="form-container">
+    <form (ngSubmit)="createSong()" id="form-create">
+        <div id="create-playlist">
+            <label for="playlist-name">INSERT NAME TO SONGS</label>
+            <input type="text" id="playlist-name" name="titulo" placeholder="Enter playlist name" [(ngModel)]="titulo" required>
+
+            <label for="playlist-description">INSERT TO DURATION</label>
+            <input type="number" id="playlist-description" name="duracion" placeholder="Enter playlist duration" [(ngModel)]="duracion" required>
+
+            <label for="fecha">FECHA</label>
+            <input type="date" id="fechaLanzamiento" name="fechaLanzamiento" [(ngModel)]="fecha" required>
+
+            <label for="album">ALBUM</label>
+            <input type="text" id="album" name="album" [(ngModel)]="album" required>
+
+            <label for="tipo">GENERO</label>
+            <select id="tipo" name="tipo" [(ngModel)]="tipo" required>
+                <option value="POP">POP</option>
+                <option value="ROCK">ROCK</option>
+                <option value="REGUETON">REGUETON</option>
+                <option value="CLASIC">CLASIC</option>
+                <option value="ELECTRONIC">ELECTRONIC</option>
+                <option value="BACHATA">BACHATA</option>
+            </select>
+        </div>    
+        <button id="btn_create" type="submit">CREATE SONGS</button>
+    </form>
+</div>

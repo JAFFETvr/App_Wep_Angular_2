@@ -1,0 +1,36 @@
+<!-- src/app/login/loginn/loginn.component.html -->
+<div id="center">
+    <div id="login" class="login-container">
+        <h2>
+            <div>
+                <img id="img1" src="./1.png" alt="">
+            </div>
+            Iniciar Sesión
+        </h2>
+        <div class="half-container">
+            <img id="img2" src="./3.png" alt="">
+            <div style="width: 100%;">
+                <label for="correo"></label>
+                <input type="text" id="correo" [(ngModel)]="correo" placeholder="Introduce tu usuario">
+            </div>
+        </div>
+        <div class="half-container">
+            <img id="img3" src="./2.png" alt="">
+            <div style="width: 100%;">
+                <label for="password"></label>
+                <input type="password" id="password" [(ngModel)]="password" placeholder="Introduce tu contraseña">
+            </div>
+        </div>
+        <div class="half-container">
+            <div style="width: 100%;">
+                <label for="rol">Introduce tu rol</label>
+                <select id="rol" [(ngModel)]="rol">
+                    <option value="user">USER</option>
+                    <option value="artist">ARTISTA</option>
+                </select>
+            </div>
+        </div>
+
+        <button (click)="iniciarSesion()">Iniciar Sesión</button>
+    </div>
+</div>

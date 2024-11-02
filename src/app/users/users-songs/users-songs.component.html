@@ -1,0 +1,32 @@
+<app-user-header></app-user-header>
+<div id="container">
+    <h3>Your Songs</h3>
+    <div id="songs">
+        <p>Songs:</p>
+        <div id="play">
+            <div *ngFor="let song of Mysongs">
+                <p>{{ song.titulo }}</p>
+                <label for="playlist-select-{{ song.id }}">Add to Playlist:</label>
+                <select id="playlist-select-{{ song.id }}" [(ngModel)]="selectedPlaylistId">
+                    <option value="" disabled selected>Select a Playlist</option>
+                    <option *ngFor="let playlist of playlists" [value]="playlist.id">{{ playlist.nombre }}</option>
+                </select>
+                <button (click)="selectedPlaylistId ? addToPlaylist(song.id, selectedPlaylistId) : null">Add to Playlist</button>
+                <button (click)="viewSongDetails(song)">View Song</button>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="playlists.length === 0">
+        <p>You have no playlists. Please create one to add songs.</p>
+    </div>
+
+    <div *ngIf="selectedSong">
+        <h4>Song Details</h4>
+        <p><strong>Title:</strong> {{ selectedSong.titulo }}</p>
+        <p><strong>Album:</strong> {{ selectedSong.album }}</p>
+        <p><strong>Genrero:</strong> {{ selectedSong.genero }}</p>
+        <p><strong>Duration:</strong> {{ selectedSong.duracion }}</p>
+        <button (click)="selectedSong = null">Close</button>
+    </div>
+</div>
