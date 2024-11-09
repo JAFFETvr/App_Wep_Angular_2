@@ -10,9 +10,7 @@ export class MusicService {
 
   constructor(private http: HttpClient) { }
 
-  // ** Canciones **
 
-  // Crear una nueva canción
   createCancion(data: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/canciones`, data);
   }
