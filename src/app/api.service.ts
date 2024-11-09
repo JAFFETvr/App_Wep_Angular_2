@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MusicService {
-  private baseUrl = 'http://localhost:8080/api';
+  private baseUrl = 'http://34.202.107.88:8080/api';
 
   constructor(private http: HttpClient) { }
 
