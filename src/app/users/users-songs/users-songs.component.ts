@@ -8,9 +8,11 @@ import { MusicService } from '../../api.service';
 })
 export class UsersSongsComponent {
   Mysongs: any[] = [];
-  playlists: any[] = []; 
+  playlists: any[] = [];
   selectedPlaylistId: number | null = null;
-  selectedSong: any | null = null; 
+  selectedSong: any | null = null;
+  showPlaylistModal: boolean = false;
+  songToAdd: number | null = null;
 
   constructor(private musicService: MusicService) {}
 
@@ -43,6 +45,25 @@ export class UsersSongsComponent {
     );
   }
 
+  openPlaylistModal(songId: number): void {
+    this.songToAdd = songId;
+    this.showPlaylistModal = true;
+  }
+
+  closePlaylistModal(): void {
+    this.showPlaylistModal = false;
+    this.selectedPlaylistId = null;
+  }
+
+  confirmAddToPlaylist(): void {
+    if (this.songToAdd && this.selectedPlaylistId) {
+      this.addToPlaylist(this.songToAdd, this.selectedPlaylistId);
+      this.closePlaylistModal();
+    } else {
+      alert('Please select a playlist.');
+    }
+  }
+
   addToPlaylist(songId: number, playlistId: number): void {
     const data = {
       listaReproduccion_id: playlistId,
@@ -51,17 +72,17 @@ export class UsersSongsComponent {
     
     this.musicService.createListaCancion(data).subscribe(
       (response) => {
-        console.log(`Canción ${songId} añadida a la lista de reproducción ${playlistId}`, response);
-        alert(`Canción añadida exitosamente a la lista de reproducción`);
+        console.log(`Song ${songId} added to playlist ${playlistId}`, response);
+        alert('Song successfully added to playlist');
       },
       (error) => {
-        console.error('Error al añadir la canción a la lista de reproducción:', error);
-        alert('Ocurrió un error al añadir la canción a la lista de reproducción');
+        console.error('Error adding song to playlist:', error);
+        alert('An error occurred while adding the song to the playlist');
       }
     );
   }
 
   viewSongDetails(song: any): void {
-    this.selectedSong = song; 
+    this.selectedSong = song;
   }
 }

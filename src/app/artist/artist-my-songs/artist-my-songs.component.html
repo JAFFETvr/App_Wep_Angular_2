@@ -4,8 +4,10 @@
     <div id="songs">
         <p>Songs:</p>
         <div id="play">
-            <div *ngFor="let Mysong of Mysongs">
-                <p>{{ Mysong.titulo }}</p>
+            <div *ngFor="let Mysong of Mysongs" class="song-item">
+                <p><strong>Title:</strong> {{ Mysong.titulo }}</p>
+                <p><strong>Genre:</strong> {{ Mysong.genero }}</p>
+                <p><strong>Duration:</strong> {{ Mysong.duracion }} min</p>
                 <button (click)="openEditModal(Mysong)">Edit</button>
                 <button (click)="deleteSong(Mysong.id)">Delete</button>
             </div>
